@@ -1,10 +1,9 @@
-## angular2-seed
+## angular2-seed project
 
-A simple starter project demonstrating the basic concepts of Angular 2.
+A simple starter project for angular2 workshops
+based on `https://github.com/angular/angular2-seed`.
 
-This branch uses [Webpack](https://webpack.github.io/) for Development. There is also a SystemJS branch available.
-
-### Usage
+### How to use:
 - Clone or fork this repository
 - Make sure you have [node.js](https://nodejs.org/) installed version 5+
 - Make sure you have NPM installed version 3+

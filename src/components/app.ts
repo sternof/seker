@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `
      <div> 
       <img src="assets/images/logo.png">
-      <h1>Angular After Hours Workshop</h1>
+      <h1>Angular After Hours Workshop!!!</h1>
     </div>
     `,
 })

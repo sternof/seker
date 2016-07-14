@@ -1,7 +1,7 @@
 import {bootstrap} from '@angular/platform-browser-dynamic';
-import {TodolistComponent } from 'components/todolist.component';
+import {AppComponent} from 'components/app.component';
 
 
 
-bootstrap(TodolistComponent );
+bootstrap(AppComponent);
 

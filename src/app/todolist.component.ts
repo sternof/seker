@@ -13,7 +13,7 @@ import {Item} from "../models/item";
     <cs-layout>
     
        <cs-header>
-        <cs-todolist-header></cs-todolist-header>                   
+        <cs-todolist-header [title]="appTitle"></cs-todolist-header>                   
        </cs-header>
        
        <cs-main>       
@@ -32,10 +32,13 @@ import {Item} from "../models/item";
 
 export class TodolistComponent {
 
+  private appTitle: string;
   private items: Item[];
 
   constructor() {
-    this.items = [];
+    this.items    = [];
+    this.appTitle = "ToDo";
+
     this.items.push(new Item('Learn Angular'));
   }
 

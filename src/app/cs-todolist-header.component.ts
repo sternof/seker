@@ -7,9 +7,10 @@ import {Component, EventEmitter, Output} from "@angular/core";
     <h1>{{title}}</h1>
         
     <input class="new-todo"
-       placeholder="What needs to be done?"
-       (keydown.enter)="itemAdded.emit('bobo')"
-       autofocus>
+           #itemBox           
+           placeholder="What needs to be done?"
+           (keydown.enter)="itemAdded.emit(itemBox.value)"
+           autofocus>
     `
 })
 export class TodolistHeaderComponent {

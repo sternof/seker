@@ -1,4 +1,5 @@
-import {Component} from "@angular/core";
+import {Component, Output, EventEmitter} from "@angular/core";
+import {Item} from "../../models/item";
 
 @Component({
   selector: 'cs-item',
@@ -8,12 +9,12 @@ import {Component} from "@angular/core";
 
         <div class="view">
           <input class="toggle"
-                 [value]="item.done"
+                 [checked]="item.done"
                  type="checkbox">
 
           <label>{{item.title}}</label>
 
-          <button class="destroy"></button>
+          <button class="destroy" (click)="destroyItem.emit(item)"></button>
 
         </div>
 
@@ -24,6 +25,9 @@ import {Component} from "@angular/core";
 })
 
 export class ItemComponent {
+
+  @Output()
+  private destroyItem = new EventEmitter<Item>();
 
   private getClass(item) {
     return {

@@ -7,8 +7,7 @@ import {ItemComponent} from "./cs-list-item.component";
     inputs:['items'],
     template: `
         <ul class="todo-list">
-          <cs-item *ngFor="let item of items"
-                   (destroyItem)=""
+          <cs-item *ngFor="let item of items"                   
                    [item]="item"></cs-item>      
         </ul>
      `

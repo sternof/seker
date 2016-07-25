@@ -1,27 +1,24 @@
 import {Component, ViewEncapsulation} from "@angular/core";
 import {GRID_COMPONENTS} from "../grid/index";
 import {SHARED_COMPONENTS} from "../shared/index";
+import {TodolistHeaderComponent} from "./cs-todolist-header.component";
+import {Item} from "../models/item";
 
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector  : 'todolist',
-  directives: [...GRID_COMPONENTS, ...SHARED_COMPONENTS],
+  directives: [...GRID_COMPONENTS, ...SHARED_COMPONENTS, TodolistHeaderComponent],
   styleUrls: ['todolist.css'],
   template  : `
     <cs-layout>
     
        <cs-header>
-       
-        <h1>todos</h1>
-    
-        <input class="new-todo"
-           placeholder="What needs to be done?"
-           autofocus>           
+        <cs-todolist-header></cs-todolist-header>                   
        </cs-header>
        
        <cs-main>       
         <cs-toggle></cs-toggle>
-        <cs-list></cs-list>
+        <cs-list [items]="items"></cs-list>
        </cs-main>
       
       <cs-footer>
@@ -33,4 +30,13 @@ import {SHARED_COMPONENTS} from "../shared/index";
    `
 })
 
-export class TodolistComponent {}
+export class TodolistComponent {
+
+  private items: Item[];
+
+  constructor() {
+    this.items = [];
+    this.items.push(new Item('Learn Angular'));
+  }
+
+}

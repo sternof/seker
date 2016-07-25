@@ -4,10 +4,12 @@ import {SHARED_COMPONENTS} from "../shared/index";
 import {TodolistHeaderComponent} from "./cs-todolist-header.component";
 import {Item} from "../models/item";
 import {Count} from "../pipes/count";
+import {Todolist} from "../models/list";
 
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector  : 'todolist',
+  providers:[Todolist],
   pipes:[Count],
   directives: [...GRID_COMPONENTS, ...SHARED_COMPONENTS, TodolistHeaderComponent],
   styleUrls: ['todolist.css'],
@@ -38,14 +40,16 @@ export class TodolistComponent {
   private appTitle: string;
   private items: Item[];
   private today = new Date();
+  private model: Todolist;
 
-  constructor() {
-    this.items    = [];
+  constructor(model: Todolist) {
+    this.items    = model.items;
     this.appTitle = "ToDo";
+    this.model = model;
   }
 
   addItem(item: string){
-    this.items.push(new Item(item));
+    this.model.addItem(item);
   }
 
 }

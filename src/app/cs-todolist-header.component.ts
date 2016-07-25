@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, EventEmitter, Output} from "@angular/core";
 
 @Component({
   selector: 'cs-todolist-header',
@@ -8,10 +8,17 @@ import {Component} from "@angular/core";
         
     <input class="new-todo"
        placeholder="What needs to be done?"
+       (keydown.enter)="itemAdded.emit('bobo')"
        autofocus>
     `
 })
 export class TodolistHeaderComponent {
 
+  @Output()
+  private itemAdded: EventEmitter<string>;
+
+  constructor() {
+    this.itemAdded = new EventEmitter<string>();
+  }
 
 }

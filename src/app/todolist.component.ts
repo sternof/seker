@@ -13,7 +13,9 @@ import {Item} from "../models/item";
     <cs-layout>
     
        <cs-header>
-        <cs-todolist-header [title]="appTitle"></cs-todolist-header>                   
+        <cs-todolist-header [title]="appTitle"
+                            (itemAdded)="addItem($event)" >                            
+        </cs-todolist-header>                           
        </cs-header>
        
        <cs-main>       
@@ -40,6 +42,10 @@ export class TodolistComponent {
     this.appTitle = "ToDo";
 
     this.items.push(new Item('Learn Angular'));
+  }
+
+  addItem(item: string){
+    console.log(item);
   }
 
 }

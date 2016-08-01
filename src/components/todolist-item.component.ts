@@ -1,9 +1,8 @@
-import {Component} from "@angular/core";
+import {Component, EventEmitter, Output, Input} from "@angular/core";
 import {Item} from "../models/item";
 
 @Component({
   selector: 'todolist-item',
-  inputs: ['item'],
   template: `
     <li [ngClass]="getClass(item)">
         <div class="view">
@@ -13,7 +12,7 @@ import {Item} from "../models/item";
 
           <label>{{ item.text }}</label>
 
-          <button class="destroy"></button>
+          <button (click)="destroyed.emit(item)" class="destroy"></button>
 
         </div>
 
@@ -24,6 +23,13 @@ import {Item} from "../models/item";
 })
 
 export class TodolistItemComponent {
+
+  @Input()  private item: Item;
+  @Output() private destroyed: EventEmitter<Item>;
+
+  constructor() {
+    this.destroyed = new EventEmitter<Item>();
+  }
 
   getClass(item: Item){
     return {

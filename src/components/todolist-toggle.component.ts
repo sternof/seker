@@ -2,7 +2,10 @@ import {Component} from "@angular/core";
 
 @Component({
   selector: 'todolist-toggle',
-  template: `<h1>Todolist Toggle</h1>`,
+  template: `  
+    <input class="toggle-all"
+           type="checkbox">
+  `,
 })
 
 export class TodolistToggleComponent {}

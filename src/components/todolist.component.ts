@@ -11,9 +11,11 @@ import {TodolistFooterComponent} from "./todolist-footer.component";
       TodolistFooterComponent
   ],
   template: `
-    <todolist-header></todolist-header>
-    <todolist-main></todolist-main>
-    <todolist-footer></todolist-footer>
+    <section class="todoapp">
+      <todolist-header></todolist-header>
+      <todolist-main></todolist-main>
+      <todolist-footer></todolist-footer>
+    </section>
    `,
 })
 

@@ -9,8 +9,10 @@ import {TodolistListComponent} from "./todolist-list.component";
       TodolistListComponent
   ],
   template: `
-    <todolist-toggle></todolist-toggle>
-    <todolist-list></todolist-list>
+    <section class="main">
+      <todolist-toggle></todolist-toggle>
+      <todolist-list></todolist-list>
+    </section>
   `,
 })
 

@@ -2,19 +2,37 @@ import {Component} from "@angular/core";
 import {TodolistHeaderComponent} from "./todolist-header.component";
 import {TodolistMainComponent} from "./todolist-main.component";
 import {TodolistFooterComponent} from "./todolist-footer.component";
+import {TodolistListComponent} from "./todolist-list.component";
+import {TodolistToggleComponent} from "./todolist-toggle.component";
+import {CounterComponent} from "./counter.component";
+import {Item} from "../models/item";
 
 @Component({
   selector: 'todolist',
   directives:[
       TodolistHeaderComponent,
       TodolistMainComponent,
-      TodolistFooterComponent
+      TodolistFooterComponent,
+      TodolistListComponent,
+      TodolistToggleComponent,
+      CounterComponent,
   ],
   template: `
     <section class="todoapp">
-      <todolist-header></todolist-header>
-      <todolist-main></todolist-main>
-      <todolist-footer></todolist-footer>
+    
+      <todolist-header [title]="title"></todolist-header>
+      
+      <todolist-main>
+        <todolist-toggle></todolist-toggle>
+        <todolist-list [items]="items"></todolist-list>
+      </todolist-main>
+      
+      <todolist-footer>
+        <counter [value]="countLeft()" 
+                 entity="items" ></counter>    
+        <button class="clear-completed">Clear completed</button>
+      </todolist-footer>
+      
     </section>
    `,
 })
@@ -38,17 +56,8 @@ export class TodolistComponent {
     this.items.splice(index, 1);
   }
 
-}
-
-class Item {
-  public text:string;
-  public done:boolean;
-  public editMode:boolean;
-
-  constructor(text: string) {
-    this.text     = text;
-    this.done     = false;
-    this.editMode = false;
+  countLeft(){
+    return this.items.filter( item => !item.done ).length;
   }
 
 }

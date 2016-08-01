@@ -1,14 +1,17 @@
 import {Component} from "@angular/core";
+import {Item} from "../models/item";
 
 @Component({
   selector: 'todolist-item',
+  inputs: ['item'],
   template: `
-    <li>
+    <li [ngClass]="getClass(item)">
         <div class="view">
           <input class="toggle"
+                 [checked]="item.done"
                  type="checkbox">
 
-          <label>Todo Title</label>
+          <label>{{ item.text }}</label>
 
           <button class="destroy"></button>
 
@@ -20,4 +23,12 @@ import {Component} from "@angular/core";
   `,
 })
 
-export class TodolistItemComponent {}
+export class TodolistItemComponent {
+
+  getClass(item: Item){
+    return {
+      completed: item.done,
+      editing: item.editMode
+    }
+  }
+}

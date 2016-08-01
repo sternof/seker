@@ -2,10 +2,11 @@ import {Component} from "@angular/core";
 
 @Component({
   selector: 'counter',
+  inputs:['value', 'entity'],
   template: `
     <span class="todo-count">
-      <strong>1</strong>
-      item left
+      <strong>{{ value }}</strong>
+      {{ entity }} left
     </span>
  `,
 })

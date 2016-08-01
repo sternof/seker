@@ -1,8 +1,10 @@
 import {Component} from "@angular/core";
+import {TodolistItemComponent} from "./todolist-item.component";
 
 @Component({
   selector: 'todolist-list',
-  template: `<h1>Todolist List</h1>`,
+  directives:[TodolistItemComponent],
+  template: `<todolist-item></todolist-item>`,
 })
 
 export class TodolistListComponent {}

@@ -1,8 +1,10 @@
 import {Component} from "@angular/core";
+import {CounterComponent} from "./counter.component";
 
 @Component({
   selector: 'todolist-footer',
-  template: `<h1>Todolist Footer</h1>`,
+  directives:[CounterComponent],
+  template: `<counter></counter>`,
 })
 
 export class TodolistFooterComponent {}

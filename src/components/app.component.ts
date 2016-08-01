@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
+import {TodolistComponent} from "./todolist.component";
 
 @Component({
   selector: 'app',
-  template: `
-    <h1>Angular2 Course</h1>
-    `,
+  directives:[TodolistComponent],
+  template: `<todolist></todolist>`,
 })
 
 export class AppComponent {}

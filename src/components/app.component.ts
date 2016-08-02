@@ -1,44 +1,58 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
+import {Validators,REACTIVE_FORM_DIRECTIVES, FormControl, FormGroup} from "@angular/forms";
+import {CustomValidators} from "./validators";
 
 @Component({
-  selector: 'app',
-  template: `
+  selector  : 'app',
+  directives: [REACTIVE_FORM_DIRECTIVES],
+  template  : `
     <h1>Login</h1>
     
-    <input type="text"
-           [(ngModel)]="user.username"            
-           placeholder="username">
-           
-    <input type="password"
-           [(ngModel)]="user.password"
-           placeholder="password">
+    <form [formGroup]="loginForm">    
     
-    <button (click)="login()">login</button>
+      <input type="text"                   
+             [formControl]="username"                                                                                                                                                                      
+             placeholder="username">                  
+                                     
+      <input type="password"                     
+             [formControl]="password"
+             placeholder="password">
+                    
+      <button (click)="login()">login</button>   
+    </form>
     
     `,
 })
 
 export class AppComponent {
 
-  private user: User;
+  private loginForm:FormGroup;
+  private username:FormControl;
+  private password:FormControl;
 
   constructor() {
-    this.user = new User('','');
+
+    this.username = new FormControl('',Validators.compose([
+        CustomValidators.cannotContainSpace,
+        CustomValidators.isNir,
+    ]),
+      Validators.compose([
+          CustomValidators.isUnique
+      ])
+    );
+
+    this.password = new FormControl();
+
+    this.loginForm = new FormGroup({
+      username: this.username,
+      password: this.password
+
+    })
   }
 
   login(){
-    console.log(this.user);
-    this.user = new User('','')
+    console.log(this.loginForm);
   }
 
-}
 
-class User {
-  username: string;
-  password: string;
-
-  constructor(username:string, password:string) {
-    this.username = username;
-    this.password = password;
-  }
 }

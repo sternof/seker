@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TodoListService } from '../../services/todoList.service';
 
 @Component({
   selector: 'aah-todo-list',
@@ -18,13 +19,11 @@ import { Component } from '@angular/core';
 })
 
 export class TodoListComponent {
+  todoList;
 
-  todoList = [
-    {title: 'RSVP Yes', completed: true, editing: false},
-    {title: 'Set up environment', completed: true, editing: false},
-    {title: 'Clone project', completed: false, editing: false},
-    {title: 'Come to meetup', completed: false, editing: true},
-  ];
+  constructor(private todoListService: TodoListService) {
+    this.todoList = todoListService.getTodoList();
+  }
 
   destroyItem(item) {
     const index = this.todoList.indexOf(item);

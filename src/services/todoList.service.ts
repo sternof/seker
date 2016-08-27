@@ -10,7 +10,7 @@ export class TodoListService {
   getTodoList() {
     return this.todoList;
   }
-  
+
   removeItem(item) {
     const index = this.todoList.indexOf(item);
     this.todoList.splice(index, 1);
@@ -18,6 +18,14 @@ export class TodoListService {
 
   clearEditing() {
     this.todoList.forEach((listItem) => listItem.editing = false);
+  }
+
+  addItem(title) {
+    this.todoList.push({
+      title,
+      completed: false,
+      editing: false
+    });
   }
 
 }

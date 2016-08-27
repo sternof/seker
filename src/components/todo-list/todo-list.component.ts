@@ -21,8 +21,10 @@ import { TodoListService } from '../../services/todoList.service';
 export class TodoListComponent {
   todoList;
 
-  constructor(private todoListService: TodoListService) {
-    this.todoList = todoListService.getTodoList();
+  constructor(private todoListService: TodoListService) {}
+
+  ngOnInit() {
+    this.todoList = this.todoListService.getTodoList();
   }
 
   destroyItem(item) {

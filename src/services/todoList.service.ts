@@ -28,4 +28,18 @@ export class TodoListService {
     });
   }
 
+  getIncomplete() {
+    return this.todoList.filter((item) => {
+      return !item.completed;
+    })
+  }
+
+  getIncompleteCount() {
+    return this.getIncomplete().length;
+  }
+
+  getTotalCount() {
+    return this.todoList.length;
+  }
+
 }

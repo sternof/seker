@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TodoListService } from '../../services/todoList.service';
 
 @Component({
   selector: 'aah-footer',
@@ -7,8 +8,7 @@ import { Component } from '@angular/core';
   template: `
     <footer class="footer">
       <span class="todo-count">
-        <strong>1</strong>
-        item left
+        <strong>{{ getCountMessage() }}</strong>
       </span>
       <button class="clear-completed">Clear completed</button>
     </footer>
@@ -16,5 +16,17 @@ import { Component } from '@angular/core';
 })
 
 export class FooterComponent {
-  
+
+  constructor(private todoListService: TodoListService) {}
+
+  getCountMessage() {
+    const incomplete = this.todoListService.getIncompleteCount();
+    const total = this.todoListService.getTotalCount();
+
+    return `
+      ${incomplete === 0 ? 'no' : incomplete} 
+      item${incomplete === 1 ? '' : 's'} left (out of ${total})
+      `;
+  }
+
 }

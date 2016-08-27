@@ -16,8 +16,7 @@ import { TodoListService } from '../../services/todoList.service';
 
 export class TodoInputComponent {
 
-  constructor(private todoListService: TodoListService) {
-  }
+  constructor(private todoListService: TodoListService) {}
 
   addItem(inputElement) {
     this.todoListService.addItem(inputElement.value);

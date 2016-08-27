@@ -26,11 +26,10 @@ export class TodoListComponent {
   }
 
   destroyItem(item) {
-    const index = this.todoList.indexOf(item);
-    this.todoList.splice(index, 1);
+    this.todoListService.removeItem(item);
   }
 
   editItem() {
-    this.todoList.forEach((listItem) => listItem.editing = false);
+    this.todoListService.clearEditing();
   }
 }

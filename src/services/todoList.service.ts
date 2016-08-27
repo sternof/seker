@@ -11,4 +11,13 @@ export class TodoListService {
     return this.todoList;
   }
   
+  removeItem(item) {
+    const index = this.todoList.indexOf(item);
+    this.todoList.splice(index, 1);
+  }
+
+  clearEditing() {
+    this.todoList.forEach((listItem) => listItem.editing = false);
+  }
+
 }

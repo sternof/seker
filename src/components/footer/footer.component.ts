@@ -10,7 +10,8 @@ import { TodoListService } from '../../services/todoList.service';
       <span class="todo-count">
         <strong>{{ getCountMessage() }}</strong>
       </span>
-      <button class="clear-completed">Clear completed</button>
+      <button class="clear-completed"
+              (click)="clearCompleted()">Clear completed</button>
     </footer>
   `
 })
@@ -27,6 +28,10 @@ export class FooterComponent {
       ${incomplete === 0 ? 'no' : incomplete} 
       item${incomplete === 1 ? '' : 's'} left (out of ${total})
       `;
+  }
+
+  clearCompleted() {
+    this.todoListService.removeCompleted();
   }
 
 }

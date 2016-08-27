@@ -42,4 +42,10 @@ export class TodoListService {
     return this.todoList.length;
   }
 
+  removeCompleted() {
+    const incomplete = this.getIncomplete();
+    this.todoList.splice(0, this.todoList.length);
+    this.todoList.push(...incomplete);
+  }
+
 }

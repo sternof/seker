@@ -7,7 +7,10 @@ import { Component } from '@angular/core';
   template: `
     <header class="header">  
       <h1>{{ title }}</h1>  
+      <h2> {{description}}</h2>
+      <!--
       <aah-todo-input></aah-todo-input>
+      -->
     </header>
   `
 })
@@ -15,5 +18,7 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   title: string = 'Seker';
+  description: string = 'this seker is for ...  asdlfkjhasdkfjha sldkjfhaskldhfakjlsdh \n' +
+  'hello asdfasldkfj ';
 
 }

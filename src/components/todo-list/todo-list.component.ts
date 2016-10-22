@@ -5,13 +5,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo-list.component.css'],
 
   template: `
-    <ul class="todo-list">
+    <ul class="todo-list" (finish)=finishSeker()>
 
      <aah-todo-item *ngFor="let item of todoList"
      [item]="item"
      (destroy)="destroyItem(item,$event)">
      </aah-todo-item>
    </ul>
+
+  <!-- temp hack-->  
+  <button (click)=finishSeker()>finish the seker</button>
+
   `
 })
 /// [value]="item.title" - is better than value= {{item.title}} 
@@ -20,11 +24,12 @@ import { Component } from '@angular/core';
 //[item]- is just a var name
 export class TodoListComponent {
 
+//@Input() finish :any;
   todoList = [
-    {title: 'RSVP Yes', completed: true, editing: false},
-    {title: 'Set up environment', completed: true, editing: false},
-    {title: 'Clone project', completed: false, editing: false},
-    {title: 'Come to meetup', completed: false, editing: false},
+    {title: 'whatsup today?',percent: 50},
+    {title: 'Set up environment', percent: 50},
+    {title: 'Clone project', percent: 30, completed: false, editing: false},
+    {title: 'Come to meetup', percent: 50, completed: false, editing: false},
   ];
 
 destroyItem(item : any, event) {
@@ -32,5 +37,23 @@ destroyItem(item : any, event) {
   const index = this.todoList.indexOf(item);
   this.todoList.splice(index,1);
 }
+///// shouldnt be here at all. not a todo list thing ! 
+finishSeker() {
+  let result : number = this.calculateList();
+  this.showResult(result);
+}
+
+private calculateList() : number {
+let length : number = this.todoList.length; // true only if all questions are marked!
+let sum : number = this.todoList.map( item => item.percent).reduce( (total,item) => total + Number(item) );
+let res = sum / length;
+return res;
+}
+
+private showResult(result : number) {
+
+console.log(result);
+}
+
 }
 

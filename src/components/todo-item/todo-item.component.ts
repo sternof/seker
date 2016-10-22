@@ -7,7 +7,32 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   template: `
       <li 
       [ngClass]="getItemClass(item)">
+      <form>
         <div class="view">
+        <label> {{item.title}} </label>
+
+
+<input type="radio" name="selection" value=40 [(ngModel)] ="item.percent">
+ 40%<br><br>
+<input type="radio" name="selection" value=50 [(ngModel)] ="item.percent">
+ 50%<br><br>
+<input type="radio" name="selection" value=60 [(ngModel)] ="item.percent">
+ 60%<br><br>
+<input type="radio" name="selection" value=70 [(ngModel)] ="item.percent">
+ 70%<br><br>
+<input type="radio" name="selection" value=80 [(ngModel)] ="item.percent">
+ 80%
+         </div>
+        </form>
+      </li>
+
+
+
+
+      <h1> debug:</h1>
+      <h3> {{ item | json}} </h3>
+
+<!--
           <input class="toggle"
                  type="checkbox" 
                  [checked]=item.completed
@@ -17,12 +42,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
           <button class="destroy" 
           (click)="destroyItem(item)">
           </button>
-        </div>
         <input class="edit" 
         [value]="item.title" >
-      </li>
+-->
   `
 })
+
 
 export class TodoItemComponent {
   @Input() item : any;

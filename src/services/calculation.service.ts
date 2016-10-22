@@ -10,7 +10,8 @@ let length : number = answeredList.length;
 let res = 'You did not answer any question!'
 if (length) {
 let sum : number = answeredList.map( item => item.percent).reduce( (total,item) => Number(total) + Number(item) );
-res = this.calculateFromPercentToYear(sum / length ).toString();
+let percent : number = sum / length;
+res = this.calculateFromPercentToYear( percent).toString();
 }
 return res;
 }

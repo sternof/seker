@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { CalculationService } from '../../services/Calculation.service'
 
 @Component({
   selector: 'aah-todo-list',
   styleUrls: ['./todo-list.component.css'],
-
+  providers: [CalculationService],
   template: `
     <ul class="todo-list" (finish)=finishSeker()>
 
@@ -32,6 +33,13 @@ export class TodoListComponent {
     {title: 'Come to meetup', percent: 0 },
   ];
 
+  calc : CalculationService ;
+
+constructor( calc : CalculationService) {
+  this.calc = calc;
+}
+
+
 destroyItem(item : any, event) {
   console.log("event");
   const index = this.todoList.indexOf(item);
@@ -39,23 +47,13 @@ destroyItem(item : any, event) {
 }
 ///// shouldnt be here at all. not a todo list thing ! 
 finishSeker() {
-  let result : string = this.calculateList();
+  let result : string = this.calc.calculatePercent(this.todoList);
   this.showResult(result);
 }
 
-private calculateList() : string {
-let answeredList = this.todoList.filter(item => item.percent != 0);
-let length : number = answeredList.length; 
-let res = 'You did not answer any question!'
-if (length) {
-let sum : number = answeredList.map( item => item.percent).reduce( (total,item) => Number(total) + Number(item) );
-res = (sum / length).toString();
-}
-return res;
-}
+
 
 private showResult(result : string) {
-
 console.log(result);
 }
 

@@ -9,6 +9,8 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TodoInputComponent } from './components/todo-input/todo-input.component';
 
+import { CalculationService} from './services/calculation.service';
+
 @NgModule({
   imports: [BrowserModule, FormsModule],
   declarations: [
@@ -19,6 +21,9 @@ import { TodoInputComponent } from './components/todo-input/todo-input.component
     TodoListComponent, 
     TodoItemComponent
   ],
+  providers: [ 
+    CalculationService
+],
   bootstrap: [AppComponent],
 })
 

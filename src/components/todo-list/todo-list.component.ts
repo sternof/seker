@@ -47,7 +47,7 @@ destroyItem(item : any, event) {
 }
 ///// shouldnt be here at all. not a todo list thing ! 
 finishSeker() {
-  let result : string = this.calc.calculatePercent(this.todoList);
+  let result : string = this.calc.calculateResult(this.todoList);
   this.showResult(result);
 }
 

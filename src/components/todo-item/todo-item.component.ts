@@ -9,7 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       [ngClass]="getItemClass(item)">
       <form>
         <div class="view">
-        <label> {{item.title}} </label>
+        <label> {{item.title}} </label><br>
 
 
 <input type="radio" name="selection" value=40 [(ngModel)] ="item.percent">
@@ -28,11 +28,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 
 
-
+<!--
       <h1> debug:</h1>
       <h3> {{ item | json}} </h3>
 
-<!--
+
           <input class="toggle"
                  type="checkbox" 
                  [checked]=item.completed
@@ -56,9 +56,7 @@ editItem(item : any) : void {
 item.editing = true;
 }
 
-destroyItem(item : any) {
-  this.destroy.emit(item); // calling for the todo list to remove the item
-}
+
 // return an object to the class and the state true or false.
 getItemClass(item : any) : any {
 return {
@@ -66,10 +64,15 @@ return {
   editing: item.editing
 }
 }
+/*
+destroyItem(item : any) {
+  this.destroy.emit(item); // calling for the todo list to remove the item
+}
+
 changeCompleted(item: any, checkboxmark : boolean) {
  // item.completed= !item.completed; 
  //better way:
  item.completed = checkboxmark;
-}
+}*/
 }
 

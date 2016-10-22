@@ -26,10 +26,10 @@ export class TodoListComponent {
 
 //@Input() finish :any;
   todoList = [
-    {title: 'whatsup today?',percent: 50},
-    {title: 'Set up environment', percent: 50},
-    {title: 'Clone project', percent: 30, completed: false, editing: false},
-    {title: 'Come to meetup', percent: 50, completed: false, editing: false},
+    {title: 'whatsup today?',percent: 0 },
+    {title: 'Set up environment', percent: 0 },
+    {title: 'Clone project', percent: 0 },
+    {title: 'Come to meetup', percent: 0 },
   ];
 
 destroyItem(item : any, event) {
@@ -39,18 +39,22 @@ destroyItem(item : any, event) {
 }
 ///// shouldnt be here at all. not a todo list thing ! 
 finishSeker() {
-  let result : number = this.calculateList();
+  let result : string = this.calculateList();
   this.showResult(result);
 }
 
-private calculateList() : number {
-let length : number = this.todoList.length; // true only if all questions are marked!
-let sum : number = this.todoList.map( item => item.percent).reduce( (total,item) => total + Number(item) );
-let res = sum / length;
+private calculateList() : string {
+let answeredList = this.todoList.filter(item => item.percent != 0);
+let length : number = answeredList.length; 
+let res = 'You did not answer any question!'
+if (length) {
+let sum : number = answeredList.map( item => item.percent).reduce( (total,item) => Number(total) + Number(item) );
+res = (sum / length).toString();
+}
 return res;
 }
 
-private showResult(result : number) {
+private showResult(result : string) {
 
 console.log(result);
 }

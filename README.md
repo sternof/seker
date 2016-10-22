@@ -1,5 +1,6 @@
-## angular2-seed project
+## seker
 
+checking out git
 A simple starter project for angular2 workshops
 based on `https://github.com/angular/angular2-seed`.
 

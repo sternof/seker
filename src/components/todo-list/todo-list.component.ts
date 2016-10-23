@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AnalysisService } from '../../services/analysis.service'
+import { ListService } from '../../services/list.service'
 
 @Component({
   selector: 'aah-todo-list',
   styleUrls: ['./todo-list.component.css'],
-  providers: [AnalysisService],
   template: `
    <div *ngIf=!showResult>
     <ul class="todo-list"  (finish)=finishSeker()>
@@ -28,7 +28,7 @@ import { AnalysisService } from '../../services/analysis.service'
 // as {{}} is only for strings, where it title we can pass objects
 // (keyup.escape)=""
 //[item]- is just a var name
-export class TodoListComponent {
+export class TodoListComponent implements OnInit {
 
 result : string ;
 showResult : Boolean = false;
@@ -40,12 +40,19 @@ showResult : Boolean = false;
     {title: 'Come to meetup', percent: 0 },
   ];
 
-  calc : AnalysisService ;
+// why need this workaround? why cant use vars in constructor?
+  analysisService : AnalysisService ;
+  listService : ListService;
 
-constructor( calc : AnalysisService) {
-  this.calc = calc;
+constructor( calc : AnalysisService, list : ListService) {
+  this.analysisService = calc;
+  this.listService = list;
 }
 
+ngOnInit() {
+ console.log('init todo-list');
+  this.todoList = this.listService.getListFromModel();
+}
 
 destroyItem(item : any, event) {
   console.log("event");
@@ -54,7 +61,7 @@ destroyItem(item : any, event) {
 }
 ///// shouldnt be here at all. not a todo list thing ! 
 finishSeker() {
-  let result : string = this.calc.calculateResult(this.todoList);
+  let result : string = this.analysisService.calculateResult(this.todoList);
   this.result = result;
   this.showResult = true;
 }

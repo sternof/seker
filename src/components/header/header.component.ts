@@ -18,7 +18,6 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   title: string = 'Seker';
-  description: string = 'this seker is for ...  asdlfkjhasdkfjha sldkjfhaskldhfakjlsdh \n' +
-  'hello asdfasldkfj ';
+  description: string = 'this seker is for ... ';
 
 }

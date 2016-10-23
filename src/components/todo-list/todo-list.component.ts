@@ -9,7 +9,7 @@ import { ListService } from '../../services/list.service'
    <div *ngIf=!showResult>
     <ul class="todo-list"  (finish)=finishSeker()>
 
-     <aah-todo-item *ngFor="let item of todoList"
+     <aah-todo-item *ngFor="let item of qList"
      [item]="item"
      (destroy)="destroyItem(item,$event)">
      </aah-todo-item>
@@ -33,35 +33,24 @@ export class TodoListComponent implements OnInit {
 result : string ;
 showResult : Boolean = false;
 //@Input() finish :any;
-  todoList = [
-    {title: 'whatsup today?',percent: 0 },
-    {title: 'Set up environment', percent: 0 },
-    {title: 'Clone project', percent: 0 },
-    {title: 'Come to meetup', percent: 0 },
-  ];
+qList = [];
 
-// why need this workaround? why cant use vars in constructor?
-  analysisService : AnalysisService ;
-  listService : ListService;
-
-constructor( calc : AnalysisService, list : ListService) {
-  this.analysisService = calc;
-  this.listService = list;
+constructor( private analysisService : AnalysisService,  private listService : ListService) {
 }
 
 ngOnInit() {
- console.log('init todo-list');
-  this.todoList = this.listService.getListFromModel();
+ //console.log('init todo-list');
+  this.qList = this.listService.getListFromModel();
 }
 
 destroyItem(item : any, event) {
   console.log("event");
-  const index = this.todoList.indexOf(item);
-  this.todoList.splice(index,1);
+  const index = this.qList.indexOf(item);
+  this.qList.splice(index,1);
 }
 ///// shouldnt be here at all. not a todo list thing ! 
 finishSeker() {
-  let result : string = this.analysisService.calculateResult(this.todoList);
+  let result : string = this.analysisService.calculateResult(this.qList);
   this.result = result;
   this.showResult = true;
 }

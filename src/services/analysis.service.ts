@@ -1,8 +1,8 @@
-//import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-
-//@Injectable()
+@Injectable()
 export class AnalysisService {
+
 
 calculateResult(list) : string {
 let answeredList = list.filter(item => item.percent != 0);

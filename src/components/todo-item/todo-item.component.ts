@@ -19,9 +19,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 <input type="radio" name="selection" value=60 [(ngModel)] ="item.percent">
  60%<br><br>
 <input type="radio" name="selection" value=70 [(ngModel)] ="item.percent">
- 70%<br><br>
-<input type="radio" name="selection" value=80 [(ngModel)] ="item.percent">
- 80%
+ 70%
          </div>
         </form>
       </li>

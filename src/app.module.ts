@@ -9,7 +9,7 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TodoInputComponent } from './components/todo-input/todo-input.component';
 
-import { CalculationService} from './services/calculation.service';
+import { AnalysisService} from './services/analysis.service';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -22,7 +22,7 @@ import { CalculationService} from './services/calculation.service';
     TodoItemComponent
   ],
   providers: [ 
-    CalculationService
+    AnalysisService
 ],
   bootstrap: [AppComponent],
 })

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { CalculationService } from '../../services/Calculation.service'
+import { AnalysisService } from '../../services/analysis.service'
 
 @Component({
   selector: 'aah-todo-list',
   styleUrls: ['./todo-list.component.css'],
-  providers: [CalculationService],
+  providers: [AnalysisService],
   template: `
-    <ul class="todo-list" (finish)=finishSeker()>
+   <div *ngIf=!showResult>
+    <ul class="todo-list"  (finish)=finishSeker()>
 
      <aah-todo-item *ngFor="let item of todoList"
      [item]="item"
@@ -16,7 +17,11 @@ import { CalculationService } from '../../services/Calculation.service'
 
   <!-- temp hack-->  
   <button (click)=finishSeker()>finish the seker</button>
-
+  </div>
+  <br>
+  <div *ngIf=showResult> 
+  <h3> {{result}} </h3>
+  </div>
   `
 })
 /// [value]="item.title" - is better than value= {{item.title}} 
@@ -25,6 +30,8 @@ import { CalculationService } from '../../services/Calculation.service'
 //[item]- is just a var name
 export class TodoListComponent {
 
+result : string ;
+showResult : Boolean = false;
 //@Input() finish :any;
   todoList = [
     {title: 'whatsup today?',percent: 0 },
@@ -33,9 +40,9 @@ export class TodoListComponent {
     {title: 'Come to meetup', percent: 0 },
   ];
 
-  calc : CalculationService ;
+  calc : AnalysisService ;
 
-constructor( calc : CalculationService) {
+constructor( calc : AnalysisService) {
   this.calc = calc;
 }
 
@@ -48,14 +55,14 @@ destroyItem(item : any, event) {
 ///// shouldnt be here at all. not a todo list thing ! 
 finishSeker() {
   let result : string = this.calc.calculateResult(this.todoList);
-  this.showResult(result);
+  this.result = result;
+  this.showResult = true;
 }
 
-
-
+/*
 private showResult(result : string) {
 console.log(result);
-}
+}*/
 
 }
 

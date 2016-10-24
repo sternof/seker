@@ -11,8 +11,18 @@ export class ListService {
 constructor (private http : Http){
 }
 
-public getListFromModel() : Observable<Item[]> {
-var url = '../model/itemlist.json';
+public getQuestionsFromModel() : Observable<Item[]> {
+var url = '../model/questions.json';
+return this.getListFromModel(url);
+}
+
+public getPendingFromModel() : Observable<Item[]> {
+var url = '../model/pending.json';
+return this.getListFromModel(url);
+}
+
+private getListFromModel(url: string) : Observable<Item[]> {
 return this.http.get(url).map(res  => res.json());
 }
+
 }

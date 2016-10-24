@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AnalysisService } from '../../services/analysis.service'
-import { ListService } from '../../services/list.service'
-
+import { AnalysisService } from '../../services/analysis.service';
+import { ListService } from '../../services/list.service';
+import {Item} from '../../model/item';
 @Component({
   selector: 'aah-todo-list',
   styleUrls: ['./todo-list.component.css'],
@@ -39,7 +39,8 @@ constructor( private analysisService : AnalysisService,  private listService : L
 }
 
 ngOnInit() {
-  this.listService.getListFromModel().subscribe( list => {
+  this.listService.getQuestionsFromModel().subscribe( list => {
+    //TODO: move this to list.service
     for (let i=0; i< list.length;i++){
       list[i].percent = 0;
     }

@@ -39,7 +39,12 @@ constructor( private analysisService : AnalysisService,  private listService : L
 }
 
 ngOnInit() {
-  this.listService.getListFromModel().subscribe( item => this.qList = item);
+  this.listService.getListFromModel().subscribe( list => {
+    for (let i=0; i< list.length;i++){
+      list[i].percent = 0;
+    }
+    this.qList = list;
+});
 }
 
 destroyItem(item : any, event) {

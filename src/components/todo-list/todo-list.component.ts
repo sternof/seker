@@ -39,8 +39,7 @@ constructor( private analysisService : AnalysisService,  private listService : L
 }
 
 ngOnInit() {
- //console.log('init todo-list');
-  this.qList = this.listService.getListFromModel();
+  this.listService.getListFromModel().subscribe( item => this.qList = item);
 }
 
 destroyItem(item : any, event) {

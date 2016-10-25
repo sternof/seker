@@ -2,7 +2,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
 //import {Store} from '../../app.store';
 import {ENDSEKER} from '../../constants/actions';
 import { EndSekerActions } from '../../actions/endseker.actions';
-
+import { AnalysisService } from '../../services/analysis.service';
+import {Store} from '../../app.store';
 @Component({
   selector: 'aah-footer',
   styleUrls: ['./footer.component.css'],
@@ -21,14 +22,16 @@ import { EndSekerActions } from '../../actions/endseker.actions';
 export class FooterComponent {
  @Output() finish : EventEmitter<any> = new EventEmitter();
 
- // private store: Store;
+  private store: Store;
 
-  constructor( private endseker : EndSekerActions ) {
-  //  this.store = _store;
+  constructor( _store : Store, private endseker : EndSekerActions , private analysisService : AnalysisService) {
+    this.store = _store;
   }
 
   finishSeker() {
   this.endseker.end(true);
+  let result : string = this.analysisService.calculateResult(this.store.state['list'] );
+  this.endseker.updateResult(result);
 
   
   }

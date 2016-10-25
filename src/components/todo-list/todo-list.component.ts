@@ -18,7 +18,7 @@ import {ListActions} from '../../actions/list.actions';
   </div>
   <div *ngIf="store.state.endseker.showEndPage"> 
   <h3> {{store.state.endseker.resultYear}} </h3>
-  <h3> {{store.state.endseker.resultPercent}} </h3>
+  <h3> {{store.state.endseker.resultPercent | percent:'2.2-2' }}  </h3>
   </div>
   `
 })

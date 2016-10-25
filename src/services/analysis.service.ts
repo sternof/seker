@@ -10,28 +10,29 @@ let length : number = answeredList.length;
 let percent :number = 0;
 if (length) {
 let sum : number = answeredList.map( item => item.percent).reduce( (total,item) => Number(total) + Number(item) );
-percent = sum / length;
+percent = sum / (length*100);
 }
 return percent; 
 
 }
 
-calculateResult(list) : string {
+calculateResult(list) : number {
 let percent = this.calculatePercent(list);
-let res = 'לא ענית על אף שאלה!';
+//let res = 'לא ענית על אף שאלה!';
+let res : number = 0;
 if (percent !== 0) { 
-    res = 'You should find a new home in ' + this.calculateFromPercentToYearAll( percent).toString();
+    res = this.calculateFromPercentToYearAll( percent);
  }
 return res;
 }
 
 private calculateFromPercentToYearAll(percent: number) : number {
-let res = Math.round((percent/100+13.642)/0.006956);
+let res = Math.round((percent+13.642)/0.006956);
 return res; 
 }
 
 private calculateFromPercentToYearHL(percent: number) : number {
-let res = Math.round((percent/100+11.689)/0.0065908);
+let res = Math.round((percent+11.689)/0.0065908);
 return res; 
 }
 

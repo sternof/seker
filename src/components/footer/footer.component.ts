@@ -30,10 +30,10 @@ export class FooterComponent {
 
   finishSeker() {
   this.endseker.end(true);
-  let result : string = this.analysisService.calculateResult(this.store.state['list'] );
+  let result : number = this.analysisService.calculateResult(this.store.state['list'] );
   this.endseker.updateResultYear(result);
   let percent : number = this.analysisService.calculatePercent(this.store.state['list'] );
-  this.endseker.updateResultPercent(percent.toString());
+  this.endseker.updateResultPercent(percent);
   
   }
 }

@@ -15,13 +15,10 @@ import {ListActions} from '../../actions/list.actions';
      (destroy)="destroyItem(item,$event)">
      </aah-todo-item>
    </ul>
-
-  <!-- temp hack-->  
-  <button (click)=finishSeker()>finish the seker</button>
   </div>
-  <br>
   <div *ngIf="store.state.endseker.showEndPage"> 
-  <h3> {{store.state.endseker.result}} </h3>
+  <h3> {{store.state.endseker.resultYear}} </h3>
+  <h3> {{store.state.endseker.resultPercent}} </h3>
   </div>
   `
 })
@@ -35,7 +32,6 @@ private store: Store;
 
 result : string ;
 //@Input() finish :any;
-//qList = [];
 
 constructor(  _store: Store ,  private listService : ListService,
 private listactions : ListActions) {

@@ -4,15 +4,24 @@ import { Injectable } from '@angular/core';
 export class AnalysisService {
 
 
-calculateResult(list) : string {
+calculatePercent(list) : number {
 let answeredList = list.filter(item => item.percent != 0);
 let length : number = answeredList.length; 
-let res = 'You did not answer any question!'
+let percent :number = 0;
 if (length) {
 let sum : number = answeredList.map( item => item.percent).reduce( (total,item) => Number(total) + Number(item) );
-let percent : number = sum / length;
-res = 'You should find a new home in ' + this.calculateFromPercentToYearAll( percent).toString();
+percent = sum / length;
 }
+return percent; 
+
+}
+
+calculateResult(list) : string {
+let percent = this.calculatePercent(list);
+let res = 'לא ענית על אף שאלה!';
+if (percent !== 0) { 
+    res = 'You should find a new home in ' + this.calculateFromPercentToYearAll( percent).toString();
+ }
 return res;
 }
 

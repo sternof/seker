@@ -31,8 +31,9 @@ export class FooterComponent {
   finishSeker() {
   this.endseker.end(true);
   let result : string = this.analysisService.calculateResult(this.store.state['list'] );
-  this.endseker.updateResult(result);
-
+  this.endseker.updateResultYear(result);
+  let percent : number = this.analysisService.calculatePercent(this.store.state['list'] );
+  this.endseker.updateResultPercent(percent.toString());
   
   }
 }

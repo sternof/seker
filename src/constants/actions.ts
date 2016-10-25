@@ -5,5 +5,6 @@ export const LIST = {
 
 export const ENDSEKER= {
     END : 'ENDSEKER.END',
-    RESULT : 'ENDSEKER.RESULT'
+    CALC_YEAR : 'ENDSEKER.YEAR',
+    CALC_PERCENT : 'ENDSEKER.PERCENT'
 };

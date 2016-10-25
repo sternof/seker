@@ -12,16 +12,22 @@ export class EndSekerActions {
   }
 
   end(item) {
-    this.store.dispatch({
-      type   : ENDSEKER.END,
-      payload: { showEndPage: item }
-    })
+    this.updateProperty(ENDSEKER.END, { showEndPage: item });
   }
 
-  updateResult(item) {
-      this.store.dispatch({
-      type   : ENDSEKER.RESULT,
-      payload: { result: item }
+  updateResultYear(item) {
+    this.updateProperty(ENDSEKER.CALC_YEAR, { resultYear: item });
+  }
+
+  updateResultPercent(item) {
+    this.updateProperty(ENDSEKER.CALC_PERCENT, { resultPercent: item });
+  }
+
+
+  private updateProperty(type, item) {
+    this.store.dispatch({
+      type   : type,
+      payload: item
     })
   }
 

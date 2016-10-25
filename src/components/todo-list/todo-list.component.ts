@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AnalysisService } from '../../services/analysis.service';
 import { ListService } from '../../services/list.service';
 import {Item} from '../../model/item';
+import {Store} from "../../app.store";
+import {ListActions} from '../../actions/list.actions';
+
 @Component({
   selector: 'aah-todo-list',
   styleUrls: ['./todo-list.component.css'],
   template: `
-   <div *ngIf=!showResult>
+   <div *ngIf="!store.state.endseker.showEndPage">
     <ul class="todo-list"  (finish)=finishSeker()>
 
      <aah-todo-item *ngFor="let item of qList"
@@ -19,7 +22,7 @@ import {Item} from '../../model/item';
   <button (click)=finishSeker()>finish the seker</button>
   </div>
   <br>
-  <div *ngIf=showResult> 
+  <div *ngIf="store.state.endseker.showEndPage"> 
   <h3> {{result}} </h3>
   </div>
   `
@@ -30,12 +33,16 @@ import {Item} from '../../model/item';
 //[item]- is just a var name
 export class TodoListComponent implements OnInit {
 
+private store: Store;
+
 result : string ;
-showResult : Boolean = false;
 //@Input() finish :any;
 qList = [];
 
-constructor( private analysisService : AnalysisService,  private listService : ListService) {
+constructor(  _store: Store , private analysisService : AnalysisService,  private listService : ListService,
+private listactions : ListActions) {
+this.store = _store;
+
 }
 
 ngOnInit() {
@@ -43,6 +50,7 @@ ngOnInit() {
     //TODO: move this to list.service
     for (let i=0; i< list.length;i++){
       list[i].percent = 0;
+      this.listactions.add(list[i]);
     }
     this.qList = list;
 });
@@ -57,7 +65,6 @@ destroyItem(item : any, event) {
 finishSeker() {
   let result : string = this.analysisService.calculateResult(this.qList);
   this.result = result;
-  this.showResult = true;
 }
 
 /*

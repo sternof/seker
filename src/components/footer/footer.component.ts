@@ -1,4 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+//import {Store} from '../../app.store';
+import {ENDSEKER} from '../../constants/actions';
+import { EndSekerActions } from '../../actions/endseker.actions';
 
 @Component({
   selector: 'aah-footer',
@@ -18,9 +21,15 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class FooterComponent {
  @Output() finish : EventEmitter<any> = new EventEmitter();
 
-// aint working as footer is in app , not in list. can use when using redux. 
+ // private store: Store;
+
+  constructor( private endseker : EndSekerActions ) {
+  //  this.store = _store;
+  }
+
   finishSeker() {
-    this.finish.emit(null);
-console.log('finish seker footer');
+  this.endseker.end(true);
+
+  
   }
 }

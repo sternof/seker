@@ -2,15 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { RouterModule }   from '@angular/router';
+
 
 import { AppComponent } from './components/app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ResultsComponent } from './components/results/results.component';
+import { QuestionsPageComponent } from './components/questions-page/questions-page.component';
+
 
 import { AnalysisService} from './services/analysis.service';
 import { ListService} from './services/list.service';
+
 
 import {LocationStrategy, HashLocationStrategy} from "@angular/common";
 import {Store} from "./app.store";
@@ -18,13 +24,31 @@ import {APP_ACTIONS} from "./actions/app.actions";
 //import {APP_COMPONENTS} from "./components/app.components";
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpModule, JsonpModule],
+  imports: [BrowserModule, FormsModule, HttpModule, JsonpModule,
+      RouterModule.forRoot([
+  //    { path: 'links', component: linksComponent },
+      { path: 'results', component: ResultsComponent },
+/*      
+      { path: 'hero/:id', component: HeroDetailComponent },
+{
+        path: 'heroes',
+        component: HeroListComponent,
+        data: {
+          title: 'Heroes List'
+        }
+      },*/
+      { path: '', component: QuestionsPageComponent },
+      { path: '**', component: QuestionsPageComponent }
+    //  { path: '**', component: PageNotFoundComponent }
+    ])],
   declarations: [
     AppComponent, 
     HeaderComponent, 
     FooterComponent, 
     TodoListComponent, 
-    TodoItemComponent
+    TodoItemComponent,
+    QuestionsPageComponent,
+    ResultsComponent
   ],
   providers: [ 
     {

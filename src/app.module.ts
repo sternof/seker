@@ -12,7 +12,8 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ResultsComponent } from './components/results/results.component';
 import { QuestionsPageComponent } from './components/questions-page/questions-page.component';
-
+import { HomeComponent} from './components/home/home.component';
+import { LinksComponent} from './components/links/links.component';
 
 import { AnalysisService} from './services/analysis.service';
 import { ListService} from './services/list.service';
@@ -28,6 +29,8 @@ import {APP_ACTIONS} from "./actions/app.actions";
       RouterModule.forRoot([
   //    { path: 'links', component: linksComponent },
       { path: 'results', component: ResultsComponent },
+      { path: 'questions', component: QuestionsPageComponent },
+    //  { path: 'links', component: ResultsComponent },
 /*      
       { path: 'hero/:id', component: HeroDetailComponent },
 {
@@ -37,8 +40,8 @@ import {APP_ACTIONS} from "./actions/app.actions";
           title: 'Heroes List'
         }
       },*/
-      { path: '', component: QuestionsPageComponent },
-      { path: '**', component: QuestionsPageComponent }
+      { path: '', component: HomeComponent },
+      { path: '**', component: HomeComponent }
     //  { path: '**', component: PageNotFoundComponent }
     ])],
   declarations: [
@@ -48,7 +51,9 @@ import {APP_ACTIONS} from "./actions/app.actions";
     TodoListComponent, 
     TodoItemComponent,
     QuestionsPageComponent,
-    ResultsComponent
+    ResultsComponent,
+    HomeComponent,
+    LinksComponent
   ],
   providers: [ 
     {

@@ -7,9 +7,8 @@ import {Store} from "../../app.store";
   styleUrls: ['./todo-list.component.css'],
   template: `
     <ul class="todo-list" >
-     <aah-todo-item *ngFor="let item of store.state.list"
-     [item]="item"
-     (destroy)="destroyItem(item,$event)">
+     <aah-todo-item *ngFor="let item of store.state.list" 
+     [item]="item">
      </aah-todo-item>
    </ul>
   `
@@ -17,17 +16,9 @@ import {Store} from "../../app.store";
 export class TodoListComponent  {
 private store: Store;
 
+// needs ListService in order to init the list
 constructor(  _store: Store ,  private listService : ListService) {
 this.store = _store;
 }
-
-/*
-destroyItem(item : any, event) {
-  console.log("event");
-  const index = this.qList.indexOf(item);
-  this.qList.splice(index,1);
-}*/
-
-
 }
 

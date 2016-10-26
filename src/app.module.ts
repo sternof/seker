@@ -10,6 +10,7 @@ import { ResultsComponent } from './components/results/results.component';
 import { QuestionsPageComponent } from './components/questions-page/questions-page.component';
 import { HomeComponent} from './components/home/home.component';
 import { LinksComponent} from './components/links/links.component';
+import { LinksPageComponent} from './components/links/linkspage.component';
 
 import { AnalysisService} from './services/analysis.service';
 import { ListService} from './services/list.service';
@@ -23,7 +24,7 @@ import {APP_COMPONENTS} from "./components/app.components";
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, JsonpModule,
       RouterModule.forRoot([
-  //    { path: 'links', component: LinksPageComponent },
+      { path: 'links', component: LinksPageComponent },
       { path: 'results', component: ResultsComponent },
       { path: 'questions', component: QuestionsPageComponent },
     //  { path: 'addquestions', component: AddQuestionsComponent },

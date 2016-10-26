@@ -6,7 +6,9 @@ import {Store} from "../../app.store";
   styles: ['.rtl { direction: rtl; }'],
 template: `
  <header class="rtl">
-  <br>
+ 
+  <br><br>
+ <h1>----------חוצץ מדהים ביופיו---------</h1>
   <a class="rtl" routerLink="/questions" routerLinkActive="active">{{ToQuestions}}</a>
     <br>
   <a class="rtl" routerLink="/links" routerLinkActive="active">{{ToLinks}}</a>

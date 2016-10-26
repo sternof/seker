@@ -7,6 +7,7 @@ import { ResultsComponent } from './results/results.component';
 import { QuestionsPageComponent } from './questions-page/questions-page.component';
 import { HomeComponent} from './home/home.component';
 import { LinksComponent} from './links/links.component';
+import { LinksPageComponent} from './links/linkspage.component';
 
 export const APP_COMPONENTS = 
 
@@ -18,4 +19,5 @@ export const APP_COMPONENTS =
     QuestionsPageComponent,
     ResultsComponent,
     HomeComponent,
-    LinksComponent ]
+    LinksComponent,
+    LinksPageComponent ]

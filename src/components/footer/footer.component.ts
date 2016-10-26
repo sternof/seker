@@ -16,7 +16,7 @@ import {Store} from '../../app.store';
         <strong>1</strong>
         item left
       </span-->
-      <button class="clear-completed" (click)=finishSeker()>finish</button>
+      <button class="clear-completed" (click)=finishSeker()>סיום</button>
     </footer>
     
   `

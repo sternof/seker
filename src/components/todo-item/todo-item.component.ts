@@ -5,30 +5,22 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./todo-item.component.css'],
 
   template: `
-      <li class="rtl fix"
+      <li class="center"
       [ngClass]="getItemClass(item)">
       <form>
         <div class="view">
         <label> {{item.title}} </label><br>
-        <div class="rtl">
-<input class="rtl" type="radio" name="selection" value=40 [(ngModel)] ="item.percent">
- 40%
-<input  class="rtl" type="radio" name="selection" value=50 [(ngModel)] ="item.percent">
- 50%
-<input  class="rtl" type="radio" name="selection" value=60 [(ngModel)] ="item.percent">
- 60%
-<input  class="rtl" type="radio" name="selection" value=70 [(ngModel)] ="item.percent">
- 70%
+<input class="center" type="radio" name="selection" value=30 [(ngModel)] ="item.percent">
+ 30% <br>
+<input class="center" type="radio" name="selection" value=40 [(ngModel)] ="item.percent">
+ 40% <br>
+<input class="center" type="radio" name="selection" value=50 [(ngModel)] ="item.percent">
+ 50% <br>
+<input class="center" type="radio" name="selection" value=60 [(ngModel)] ="item.percent">
+ 60% <br>
+<input class="center" type="radio" name="selection" value=70 [(ngModel)] ="item.percent">
+ 70% <br>
  </div>
-
- <!--md-radio-group [(ngModel)]="item.percent">
-  <md-radio-button value="40">40%</md-radio-button>
-  <md-radio-button value="50">50%</md-radio-button>
-  <md-radio-button value="60">60%</md-radio-button>
-  <md-radio-button value="70">70%</md-radio-button>
-</md-radio-group-->
-
-         </div>
         </form>
       </li>
   `

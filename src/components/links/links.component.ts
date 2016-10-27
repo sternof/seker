@@ -24,7 +24,7 @@ template: `
 export class LinksComponent {
 
 private ToHome = 'לדף הראשי';
-private ToQuestions = 'להתחלת המשאל';
+private ToQuestions = 'לתחילת המשאל';
 private ToLinks = 'לדף הלינקים';
 private ToAddQuestions = 'להוספת שאלות למאגר';
 

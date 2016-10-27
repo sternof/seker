@@ -25,7 +25,7 @@ export class ResultsComponent {
 private store: Store;
 private summary : string = 'תוצאות';
 private home: string = 'השנה בא תצטרכו למצוא בית חדש: ';
-private percent: string = 'זו השנה בה האחוז ממוצע יהיה: ';
+private percent: string = 'זו השנה בה האחוז הממוצע יהיה: ';
 private noRes: string = 'אין תוצאות, נסה שוב ';
 
 constructor(  _store: Store ) {

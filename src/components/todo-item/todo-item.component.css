@@ -25,11 +25,13 @@ li .toggle {
 li label {
   white-space: pre-line;
   word-break: break-all;
-  padding: 15px 60px 15px 15px;
-  margin-left: 45px;
+  padding: 10px 2px 10px 15px;
+  margin-left: 10px;
   display: block;
   line-height: 1.2;
   font-size: 18px;
+  direction: rtl;
+  text-align: right;
 }
 
 
@@ -52,13 +54,13 @@ li .fix {
   margin-right:10px;
   margin-left:10px;
 }
-li .rtl {
+.center {
+text-align: right;
 direction: rtl;
+padding-right: 10px;
+padding-left: 10px;
 }
 
-.rtl {
-direction: rtl;
-}
 
 
 

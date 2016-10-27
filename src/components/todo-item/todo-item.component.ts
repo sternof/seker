@@ -5,44 +5,32 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./todo-item.component.css'],
 
   template: `
-      <li 
+      <li class="rtl fix"
       [ngClass]="getItemClass(item)">
       <form>
         <div class="view">
         <label> {{item.title}} </label><br>
-
-
-<input type="radio" name="selection" value=40 [(ngModel)] ="item.percent">
- 40%<br><br>
-<input type="radio" name="selection" value=50 [(ngModel)] ="item.percent">
- 50%<br><br>
-<input type="radio" name="selection" value=60 [(ngModel)] ="item.percent">
- 60%<br><br>
-<input type="radio" name="selection" value=70 [(ngModel)] ="item.percent">
+        <div class="rtl">
+<input class="rtl" type="radio" name="selection" value=40 [(ngModel)] ="item.percent">
+ 40%
+<input  class="rtl" type="radio" name="selection" value=50 [(ngModel)] ="item.percent">
+ 50%
+<input  class="rtl" type="radio" name="selection" value=60 [(ngModel)] ="item.percent">
+ 60%
+<input  class="rtl" type="radio" name="selection" value=70 [(ngModel)] ="item.percent">
  70%
+ </div>
+
+ <!--md-radio-group [(ngModel)]="item.percent">
+  <md-radio-button value="40">40%</md-radio-button>
+  <md-radio-button value="50">50%</md-radio-button>
+  <md-radio-button value="60">60%</md-radio-button>
+  <md-radio-button value="70">70%</md-radio-button>
+</md-radio-group-->
+
          </div>
         </form>
       </li>
-
-
-
-<!--
-      <h1> debug:</h1>
-      <h3> {{ item | json}} </h3>
-
-
-          <input class="toggle"
-                 type="checkbox" 
-                 [checked]=item.completed
-                 (change)="changeCompleted( item, Checkboxmark.checked)"
-                 #Checkboxmark>
-          <label (click)=editItem(item)> {{item.title}} </label>
-          <button class="destroy" 
-          (click)="destroyItem(item)">
-          </button>
-        <input class="edit" 
-        [value]="item.title" >
--->
   `
 })
 
@@ -62,15 +50,5 @@ return {
   editing: item.editing
 }
 }
-/*
-destroyItem(item : any) {
-  this.destroy.emit(item); // calling for the todo list to remove the item
-}
-
-changeCompleted(item: any, checkboxmark : boolean) {
- // item.completed= !item.completed; 
- //better way:
- item.completed = checkboxmark;
-}*/
 }
 

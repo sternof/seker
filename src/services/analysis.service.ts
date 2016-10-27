@@ -18,7 +18,6 @@ return percent;
 
 calculateResult(list) : number {
 let percent = this.calculatePercent(list);
-//let res = 'לא ענית על אף שאלה!';
 let res : number = 0;
 if (percent !== 0) { 
     res = this.calculateFromPercentToYearAll( percent);

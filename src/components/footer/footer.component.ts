@@ -33,11 +33,13 @@ export class FooterComponent {
   }
 
   finishSeker() {
-  this.endseker.end(true);
   let result : number = this.analysisService.calculateResult(this.store.state['list'] );
-  this.endseker.updateResultYear(result);
+  this.endseker.setResultYear(result);
+  if (result) {
+  this.endseker.setResult(true);
+  }
   let percent : number = this.analysisService.calculatePercent(this.store.state['list'] );
-  this.endseker.updateResultPercent(percent);
+  this.endseker.setResultPercent(percent);
   this.router.navigate(['/results']);
   }
 }

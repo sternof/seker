@@ -11,20 +11,20 @@ export class EndSekerActions {
     this.store = _store;
   }
 
-  end(item) {
-    this.updateProperty(ENDSEKER.END, { showEndPage: item });
+  setResult(item) {
+    this.setProperty(ENDSEKER.END, { noResults: item });
   }
 
-  updateResultYear(item) {
-    this.updateProperty(ENDSEKER.CALC_YEAR, { resultYear: item });
+  setResultYear(item) {
+    this.setProperty(ENDSEKER.CALC_YEAR, { resultYear: item });
   }
 
-  updateResultPercent(item) {
-    this.updateProperty(ENDSEKER.CALC_PERCENT, { resultPercent: item });
+  setResultPercent(item) {
+    this.setProperty(ENDSEKER.CALC_PERCENT, { resultPercent: item });
   }
 
 
-  private updateProperty(type, item) {
+  private setProperty(type, item) {
     this.store.dispatch({
       type   : type,
       payload: item

@@ -7,7 +7,8 @@ import {LocationStrategy, HashLocationStrategy} from "@angular/common";
 
 import { AppComponent } from './components/app.component';
 import { ResultsComponent } from './components/results/results.component';
-import { QuestionsPageComponent } from './components/questions-page/questions-page.component';
+import { QuestionsPageComponent } from './components/questions/questions-page.component';
+import {AddQuestionsPageComponent} from './components/questions/addquestions-page.component';
 import { HomeComponent} from './components/home/home.component';
 import { LinksComponent} from './components/links/links.component';
 import { LinksPageComponent} from './components/links/linkspage.component';
@@ -27,7 +28,7 @@ import {APP_COMPONENTS} from "./components/app.components";
       { path: 'links', component: LinksPageComponent },
       { path: 'results', component: ResultsComponent },
       { path: 'questions', component: QuestionsPageComponent },
-    //  { path: 'addquestions', component: AddQuestionsComponent },
+      { path: 'addquestions', component: AddQuestionsPageComponent },
 /*      
       { path: 'hero/:id', component: HeroDetailComponent },
 {

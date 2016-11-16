@@ -8,7 +8,7 @@ template: `
  <header class="rtl">
  
   <br><br>
- <h1>----------חוצץ מדהים ביופיו---------</h1>
+ <hr>
   <a class="rtl" routerLink="/questions" routerLinkActive="active">{{ToQuestions}}</a>
     <br>
   <a class="rtl" routerLink="/links" routerLinkActive="active">{{ToLinks}}</a>

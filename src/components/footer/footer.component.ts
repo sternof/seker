@@ -12,10 +12,15 @@ import {Store} from '../../app.store';
 
   template: `
     <footer class="footer">
-      <!--span class="todo-count">
-        <strong>1</strong>
+      <span class="todo-count">
+      <div class="progress">
+        <div [progressbar] ='60' class="progress-bar" role="progressbar" [contextType]='2'
+          aria-valuemin="0" aria-valuemax="100">  
+      </div>
+        </div>
+        <strong> {{countUnansweredQuestions()}}</strong>
         item left
-      </span-->
+      </span>
       <button class="clear-completed" (click)=finishSeker()>סיום</button>
     </footer>
     
@@ -41,5 +46,10 @@ export class FooterComponent {
   let percent : number = this.analysisService.calculatePercent(this.store.state['list'] );
   this.endseker.setResultPercent(percent);
   this.router.navigate(['/results']);
+  }
+
+  private countUnansweredQuestions(): Number {
+    return this.store.state['list'].filter(item => { 
+      return item['percent']===0}).length;
   }
 }

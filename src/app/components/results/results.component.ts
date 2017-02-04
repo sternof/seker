@@ -7,12 +7,12 @@ import {Store} from "../../app.store";
  <header class="rtl">
   <div *ngIf="store.state.endseker.noResults"> 
   <br>
-  <h2 class="rtl"> {{summary}} </h2>
-  <h3 class="rtl"> {{home }} {{store.state.endseker.resultYear}} </h3>
-  <h3 class="rtl"> {{percent}} {{store.state.endseker.resultPercent | percent:'2.2-2' }}  </h3>
+  <h2> {{summary}} </h2>
+  <h3> {{home }} {{store.state.endseker.resultYear}} </h3>
+  <h3> {{percent}} {{store.state.endseker.resultPercent | percent:'2.2-2' }}  </h3>
   </div>
   <div *ngIf="!store.state.endseker.noResults"> 
-  <h2 class="rtl"> {{ noRes}} </h2>
+  <h2> {{ noRes}} </h2>
   </div>
    <seker-router-links></seker-router-links>
  </header>

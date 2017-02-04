@@ -22,7 +22,7 @@ import {Store} from "../../app.store";
 export class ResultsComponent implements OnInit {
 private store: Store;
 private summary : string = 'תוצאות';
-private home: string = 'השנה בא תצטרכו למצוא בית חדש: ';
+private home: string = 'השנה בה תצטרכו למצוא בית חדש: ';
 private percent: string = 'זו השנה בה האחוז הממוצע יהיה: ';
 private noRes: string = 'אין תוצאות, נסה שוב ';
 

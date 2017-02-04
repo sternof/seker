@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule,JsonpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 import {LocationStrategy, HashLocationStrategy} from "@angular/common";
-
+import {ProgressbarModule}from 'ng2-bootstrap';
 
 
 import { AppComponent } from './components/app.component';
@@ -18,8 +18,6 @@ import { QuestionsAddComponent } from './components/questions-add/questions-add.
 import { QuestionComponent } from './components/question/question.component';
 import { QuestionsPageComponent } from './components/questions-page/questions-page.component';
 import { ResultsComponent } from './components/results/results.component';
-
-//import {ProgressBarDirective } from './directives/progressbar.directive';
 
 import { AnalysisService} from './services/analysis.service';
 import { ListService} from './services/list.service';
@@ -48,7 +46,7 @@ import {APP_ACTIONS} from "./actions/app.actions";
     FormsModule,
     HttpModule,
     JsonpModule,
-   // NgbModule.forRoot(),
+    ProgressbarModule.forRoot(),
       RouterModule.forRoot([
       { path: 'links', component: InfoLinksComponent },
       { path: 'results', component: ResultsComponent },

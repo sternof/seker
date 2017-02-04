@@ -9,17 +9,14 @@ import {Store} from '../../app.store';
 
   template: `
     <footer class="footer">
-    <!--ngb-progressbar type="success" [value]="60"></ngb-progressbar>
-          <div class="progress">
-        <div [progressbar] ='60' class="progress-bar" role="progressbar" [contextType]='3'
-          aria-valuemin="0" aria-valuemax="100"> {{precentUnansweredQuestions() | percent:'1.0-0'}}
-      </div>
-        </div-->
+    <progressbar [type]="progressBarType()" [value]="percentUnansweredQuestions()">{{percentUnansweredQuestions()/100 | percent:'1.0-0'}} </progressbar> 
+    
+    <button class="clear-completed" (click)=finishSeker()>סיום</button>
+    
       <span class="todo-count" *ngIf=countUnansweredQuestions()>
         <strong> {{countUnansweredQuestions()}}</strong>
         item(s) left
       </span>
-      <button class="clear-completed" (click)=finishSeker()>סיום</button>
     </footer>
     
   `
@@ -42,10 +39,20 @@ export class FooterComponent {
       return item['percent']===0}).length;
   }
 
-  private precentUnansweredQuestions(): number {
+  private percentUnansweredQuestions(): number {
     var items :number = this.store.state['list'].filter(item => { 
-      return item['percent']!=0}).length;
-      return (items / (this.store.state['list'].length)); 
+      return item['percent']!=0}
+      ).length;
+      return Math.round((items / (this.store.state['list'].length) * 100)); 
+  }
+
+  private progressBarType() : string {
+    let percent = this.percentUnansweredQuestions();
+    if (percent < 35)
+      return "info";
+    else if(percent <70)
+      return "warning";
+    return "success"
   }
 }
 

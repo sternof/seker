@@ -7,17 +7,17 @@ import {Store} from "../../app.store";
 <header class="rtl">
   <br><br>
  <hr>
-  <a class="rtl" routerLink="/questions" routerLinkActive="active">{{ToQuestions}}</a>
+  <a routerLink="/questions" routerLinkActive="active">{{ToQuestions}}</a>
     <br>
-  <a class="rtl" routerLink="/links" routerLinkActive="active">{{ToLinks}}</a>
+  <a routerLink="/links" routerLinkActive="active">{{ToLinks}}</a>
     <br>
-  <a class="rtl" routerLink="/addquestions" routerLinkActive="active">{{ToAddQuestions}}</a>
+  <a routerLink="/addquestions" routerLinkActive="active">{{ToAddQuestions}}</a>
    <br>
-  <a class="rtl" routerLink="/" routerLinkActive="active">{{ToHome}}</a>
+  <a routerLink="/" routerLinkActive="active">{{ToHome}}</a>
     <br>
  </header>
   `,
-  styles: ['.rtl { direction: rtl; }']
+  styles: []
 })
 export class RouterLinksComponent implements OnInit {
 private ToHome = 'לדף הראשי';

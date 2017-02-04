@@ -1,65 +1,48 @@
 {
-  "name": "sternof-seker",
-  "version": "1.0.0",
-  "description": "seker",
-  "main": "webpack.config.js",
+  "name": "ng-seker",
+  "version": "0.0.0",
+  "license": "MIT",
+  "angular-cli": {},
   "scripts": {
-    "typings-install": "typings install",
-    "postinstall": "npm run typings-install",
-    "build": "webpack --inline --colors --progress --display-error-details --display-cached",
-    "watch": "npm run build -- --watch",
-    "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
-    "start": "npm run server"
+    "ng": "ng",
+    "start": "ng serve",
+    "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
+    "test": "ng test",
+    "pree2e": "webdriver-manager update --standalone false --gecko false",
+    "e2e": "protractor"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://sternof/seker.git"
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^2.3.1",
+    "@angular/compiler": "^2.3.1",
+    "@angular/core": "^2.3.1",
+    "@angular/forms": "^2.3.1",
+    "@angular/http": "^2.3.1",
+    "@angular/platform-browser": "^2.3.1",
+    "@angular/platform-browser-dynamic": "^2.3.1",
+    "@angular/router": "^3.3.1",
+    "core-js": "^2.4.1",
+    "redux": "^3.6.0",
+    "rxjs": "^5.0.1",
+    "ts-helpers": "^1.1.1",
+    "zone.js": "^0.7.2"
   },
   "devDependencies": {
-    "angular2-template-loader": "0.4.0",
-    "awesome-typescript-loader": "1.1.1",
-    "css-loader": "0.23.1",
-    "es6-promise": "3.0.2",
-    "es6-shim": "0.35.0",
-    "json-loader": "0.5.4",
-    "raw-loader": "0.5.1",
-    "reflect-metadata": "0.1.2",
-    "source-map-loader": "0.1.5",
-    "to-string-loader": "1.1.4",
-    "typescript": "1.8.10",
-    "typings": "1.0.4",
-    "webpack": "1.12.9",
-    "webpack-dev-server": "1.14.0",
-    "webpack-merge": "0.8.4"
-  },
-  "dependencies": {
-    "@angular/common": "2.0.0-rc.7",
-    "@angular/compiler": "2.0.0-rc.7",
-    "@angular/core": "2.0.0-rc.7",
-    "@angular/forms": "2.0.0-rc.6",
-    "@angular/http": "2.0.0-rc.7",
-    "@angular/platform-browser": "2.0.0-rc.7",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.7",
-    "@angular/platform-server": "2.0.0-rc.7",
-    "@angular/router": "3.0.0-rc.3",
-    "core-js": "2.4.0",
-    "ie-shim": "0.1.0",
-    "redux": "3.5.2",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "0.6.21"
-  },
-  "keywords": [
-    "angular2",
-    "angular",
-    "typescript",
-    "javascript",
-    "angular2",
-    "starter"
-  ],
-  "author": "Ofer Stern",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Angular-AfterHours/workshop-angular2-seed/issues"
-  },
-  "homepage": "https://github.com/Angular-AfterHours/workshop-angular2-seed#readme"
+    "@angular/compiler-cli": "^2.3.1",
+    "@types/jasmine": "2.5.38",
+    "@types/node": "^6.0.42",
+    "angular-cli": "1.0.0-beta.26",
+    "codelyzer": "~2.0.0-beta.1",
+    "jasmine-core": "2.5.2",
+    "jasmine-spec-reporter": "2.5.0",
+    "karma": "1.2.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-remap-istanbul": "^0.2.1",
+    "protractor": "~4.0.13",
+    "ts-node": "1.2.1",
+    "tslint": "^4.3.0",
+    "typescript": "~2.0.3"
+  }
 }

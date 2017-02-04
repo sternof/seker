@@ -1,6 +1,6 @@
 import {ENDSEKER} from '../constants/actions';
 
-
+//// not used anymore. 
 export function endSekerReducer(state = { showEndPage : false } , action) {
 
   switch (action.type) {

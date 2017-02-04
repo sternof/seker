@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Router} from '@angular/router';
-import {ENDSEKER} from '../../constants/actions';
-import { EndSekerActions } from '../../actions/endseker.actions';
-import { AnalysisService } from '../../services/analysis.service';
 import {Store} from '../../app.store';
 
 @Component({
@@ -32,19 +29,11 @@ export class FooterComponent {
 
   private store: Store;
 
-  constructor( _store : Store, private endseker : EndSekerActions , 
-  private analysisService : AnalysisService, private router: Router) {
+  constructor( _store : Store, private router: Router) {
     this.store = _store;
   }
 
   finishSeker() {
-  let result : number = this.analysisService.calculateResult(this.store.state['list'] );
-  this.endseker.setResultYear(result);
-  if (result) {
-  this.endseker.setResult(true);
-  }
-  let percent : number = this.analysisService.calculatePercent(this.store.state['list'] );
-  this.endseker.setResultPercent(percent);
   this.router.navigate(['/results']);
   }
 
@@ -53,7 +42,7 @@ export class FooterComponent {
       return item['percent']===0}).length;
   }
 
-    private precentUnansweredQuestions(): number {
+  private precentUnansweredQuestions(): number {
     var items :number = this.store.state['list'].filter(item => { 
       return item['percent']!=0}).length;
       return (items / (this.store.state['list'].length)); 

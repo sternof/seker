@@ -23,7 +23,7 @@ import {Store} from "../../app.store";
  </header>
  <seker-router-links></seker-router-links>
   `,
-  styles: ['.rtl { direction: rtl; }']
+  styles: []
 })
 export class InfoLinksComponent implements OnInit {
 

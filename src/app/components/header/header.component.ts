@@ -9,8 +9,7 @@ import { Component, OnInit } from '@angular/core';
   font-size: 50px;
   font-weight: 100;
   text-align: center;
-  color: blue;
-  direction: rtl; }`],
+  color: blue; }`],
   template: `
     <header class="header">  
       <h1>{{ title }}</h1>  

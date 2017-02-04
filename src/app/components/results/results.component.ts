@@ -17,7 +17,7 @@ import {Store} from "../../app.store";
    <seker-router-links></seker-router-links>
  </header>
   `,
-  styles: ['.rtl { direction: rtl; }']
+  styles: []
 })
 export class ResultsComponent implements OnInit {
 private store: Store;

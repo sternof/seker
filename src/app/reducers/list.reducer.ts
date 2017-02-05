@@ -8,7 +8,7 @@ export function listReducer(state = [], action) {
     case LIST.ADD_ITEM:
       return [...state, action.payload];
 
-    case LIST.REMOVE_ITEM:
+    case LIST.REMOVE_ITEM:   // not used
       let index = state.indexOf(action.payload);
 
       return state.slice(0, index)

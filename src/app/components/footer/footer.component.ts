@@ -12,7 +12,7 @@ import {ListService} from'../../services/list.service'
     <progressbar [type]="progressBarType()" [value]="percentUnansweredQuestions()">{{percentUnansweredQuestions()/100 | percent:'1.0-0'}} </progressbar> 
     
     <button class="clear-completed" (click)=finishSeker()>סיום</button>
-    <button class="clear-completed" (click)=clearSelections()>נקה</button>
+    <button class="clear-completed" (click)=clearSelections()>אפס</button>
 
       <span class="todo-count" *ngIf=countUnansweredQuestions()>
         <strong> {{countUnansweredQuestions()}}</strong>

@@ -13,6 +13,10 @@ export function listReducer(state = [], action) {
 
       return state.slice(0, index)
           .concat(state.slice(index + 1));
+    
+    case LIST.CLEAR_ALL:
+    return state.map(item => { item.percent =0 ; 
+      return item});
 
     default:
       return state;

@@ -24,6 +24,10 @@ var url = '../../assets/model/pending.json';
 return this.getListFromModel(url);
 }
 
+public clearList() {
+  this.listactions.clearall();
+}
+
 private getListFromModel(url: string) : Observable<Item[]> {
 return this.http.get(url).map(res  => res.json());
 }

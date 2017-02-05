@@ -37,6 +37,7 @@
   line-height: 20px;
   text-decoration: none;
   cursor: pointer;
+  padding-left: 10px;
 }
 
 .clear-completed:hover {

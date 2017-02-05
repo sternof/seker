@@ -24,4 +24,10 @@ export class ListActions {
       payload: item
     })
   }
+
+  clearall() {
+    this.store.dispatch({
+      type   : LIST.CLEAR_ALL
+    })
+  }
 }

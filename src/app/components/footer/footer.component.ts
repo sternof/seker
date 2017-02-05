@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {Router} from '@angular/router';
 import {Store} from '../../app.store';
-
+import {ListService} from'../../services/list.service'
 @Component({
   selector: 'seker-footer',
   styleUrls: ['./footer.component.css'],
@@ -12,7 +12,8 @@ import {Store} from '../../app.store';
     <progressbar [type]="progressBarType()" [value]="percentUnansweredQuestions()">{{percentUnansweredQuestions()/100 | percent:'1.0-0'}} </progressbar> 
     
     <button class="clear-completed" (click)=finishSeker()>סיום</button>
-    
+    <button class="clear-completed" (click)=clearSelections()>נקה</button>
+
       <span class="todo-count" *ngIf=countUnansweredQuestions()>
         <strong> {{countUnansweredQuestions()}}</strong>
         item(s) left
@@ -26,12 +27,16 @@ export class FooterComponent {
 
   private store: Store;
 
-  constructor( _store : Store, private router: Router) {
+  constructor( _store : Store, private router: Router, private listService: ListService) {
     this.store = _store;
   }
 
   finishSeker() {
   this.router.navigate(['/results']);
+  this.listService.clearList();
+  }
+  clearSelections() {
+  this.listService.clearList();
   }
 
   private countUnansweredQuestions(): number {
